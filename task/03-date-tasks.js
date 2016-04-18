@@ -56,7 +56,7 @@ function parseDataFromIso8601(value) {
  *    Date(2015,1,1)    => false
  */
 function isLeapYear(date) {
-  //date = date.getFullYear();
+  date = date.getFullYear();
   return ((date % 4 == 0) && (date % 100 != 0)) || (date % 400 == 0);
 }
 
@@ -77,7 +77,7 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(startDate, endDate) {
-   return Date(endDate - startDate).toISOString();
+    return new Date(endDate - startDate).toISOString().slice(11, -1);
 }
 
 
