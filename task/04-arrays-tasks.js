@@ -377,7 +377,7 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-   return arr.reduce((n, value) => n + (value ==item), 0);
+   return arr.reduce((n, value) => n + (value ===item), 0);
 }
 
 /**
@@ -477,8 +477,9 @@ function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-  return Array(end+1).fill().map((_, i) => i).filter((_, i) => i >= start);
-}
+    return Array
+        .apply(null, Array((end - start) + 1))
+        .map(function(_, n){ return n + start; });}
 
 /**
  * Returns array containing only unique values from the specified array.
@@ -587,9 +588,14 @@ function getElementByIndexes(arr, indexes) {
 function swapHeadAndTail(arr) {
     var h = arr.slice(0, Math.floor(arr.length / 2));
     var t = arr.slice(-arr.length / 2);
-    if (arr.length % 2 === 0) var middle = [];
-    else var middle = Math.round(arr.length / 2);    
-    return t.concat(middle,h);
+    if (arr.length === 1) {
+      return arr;
+    }
+    else {
+      if (arr.length % 2 === 0) var middle = [];
+      else var middle = arr[Math.round((arr.length - 1) / 2)];    
+      return t.concat(middle,h);
+    }
 }
 
 
