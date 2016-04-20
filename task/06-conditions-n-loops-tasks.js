@@ -401,7 +401,7 @@ function isBracketsBalanced(str) {
  */
 function timespanToHumanString(startDate, endDate) {
     var time = endDate - startDate;
-    var round = (numb =>  Math.floor(( time + numb / 2 -1) / numb) ); 
+    var round = (numb =>  Math.floor(( time + numb / 2) / numb) ); 
         return time <= 45 * 1000 ? `a few seconds ago` :  
            time <= 90 * 1000 ? `a minute ago` :
            time <= 45 * 60 *1000 ? `${round(60 * 1000)} minutes ago` :
@@ -521,7 +521,44 @@ function getMatrixProduct(m1, m2) {
  *
  */
 function evaluateTicTacToePosition(position) {
-    throw new Error('Not implemented');
+            if (position[0][0] === position[0][1] && position[0][1] === position[0][2]) {
+                return position[0][0];
+            }
+            else 
+                if (position[1][0] === position[1][1] && position[1][1] === position[1][2]) {
+                    return position[1][0];
+            
+            }
+            else 
+                if (position[2][0] === position[2][1] && position[2][1] === position[2][2]) {
+                    return position[2][0];
+                
+            }
+            else 
+                if (position[0][0] === position[1][0] && position[1][0] === position[2][0]) {
+                    return position[1][0];
+                
+            }  
+            else 
+                if (position[0][1] === position[1][1] && position[1][1] === position[2][1]) {
+                    return position[0][1];
+                
+            } 
+            else 
+                if (position[0][2] === position[1][2] && position[1][2] === position[2][2]) {
+                    return position[2][2];
+                
+            }
+            else 
+                if (position[2][2] === position[1][1] && position[2][2] === position[0][0]) {
+                    return position[2][2];
+                
+            }
+            else 
+                if (position[1][1] === position[0][2] && position[1][1] === position[2][0]) {
+                    return position[1][1];
+                
+            }                                                 
 }
 
 
